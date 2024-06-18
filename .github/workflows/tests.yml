@@ -1,0 +1,28 @@
+name: tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  e2e:
+    name: "✅ cypress"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "☁️ checkout repository"
+        uses: actions/checkout@v4
+
+      - name: Setup DDEV
+        uses: ddev/github-action-setup-ddev@v1
+
+      - name: Setup Project
+        run: |
+          ddev composer install
+          ddev artisan migrate
+          ddev artisan key:generate
+
+      - name: Setup DDEV
+        run: ddev cypress-run | grep 'All specs passed'
