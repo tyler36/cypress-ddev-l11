@@ -85,7 +85,7 @@ docker run -it --rm -v ${PWD}:/e2e -w /e2e --entrypoint=cypress cypress/included
 
 <!-- markdownlint-disable line-length -->
 ```bash
-docker run -it --rm -v ${PWD}:/e2e -w /e2e --entrypoint=cypress -e CYPRESS_baseUrl=http://host.docker.internal:8000 cypress/included:7.5.0 run
+docker run -it --rm -v ${PWD}:/e2e -w /e2e --entrypoint=cypress -e CYPRESS_baseUrl=http://host.docker.internal:8000 cypress/included:13.11.0 run
 ```
 <!-- markdownlint-enable line-length -->
 
@@ -104,7 +104,7 @@ echo $DISPLAY
 
 <!-- markdownlint-disable line-length -->
 ```bash
-docker run -it --rm -v ${PWD}:/e2e -w /e2e --entrypoint=cypress -e CYPRESS_baseUrl=http://host.docker.internal:8000 -e DISPLAY cypress/included:7.5.0 open --project .
+docker run -it --rm -v ${PWD}:/e2e -w /e2e --entrypoint=cypress -e CYPRESS_baseUrl=http://host.docker.internal:8000 -e DISPLAY cypress/included:13.11.0 open --project .
 ```
 <!-- markdownlint-enable line-length -->
 
@@ -124,7 +124,7 @@ docker run -it --rm -v ${PWD}:/e2e -w /e2e --entrypoint=cypress -e CYPRESS_baseU
     ```docker
     services:
       cypress:
-        image: cypress/included:13.5.0
+        image: cypress/included:13.11.0
         volumes:
           - /usr/share/fonts:/usr/share/fonts/shared
     ```
