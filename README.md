@@ -8,6 +8,9 @@
   - [Cypress GUI font support](#cypress-gui-font-support)
   - [Browser language](#browser-language)
     - [Chrome](#chrome)
+  - [Media output](#media-output)
+    - [Screenshots](#screenshots)
+    - [Videos](#videos)
   - [Reporters](#reporters)
 - [Tips](#tips)
   - [Iframes](#iframes)
@@ -156,14 +159,64 @@ module.exports = (on, config) => {
 export LANG="ja_JP.UTF-8"
 ```
 
-- On Cypress Docker images, use the Linux method. Update the `docker-compose.yml` file.
+- On Cypress Docker images, use the Linux method. Update `docker-compose.yml`.
 
 ```yaml
 services:
   cypress:
-    image: cypress/included:9.5.1
+    image: cypress/included:13.11.0
     environment:
       - LANG=ja_JP.UTF-8
+```
+
+### Media output
+
+#### Screenshots
+
+- Manually take a screenshot
+
+  ```js
+  cy.screenshot()
+  ```
+
+- Automatically take screen shot when tests fall.
+
+  ```js
+  {
+    ...
+    screenshotOnRunFailure: true,
+  }
+  ```
+
+- Configure the screenshot output directory:
+
+  ```js
+  {
+    ...
+    screenshotsFolder: 'logs/screenshots',
+  }
+  ```
+
+#### Videos
+
+- Video output is disabled by default. Enable it in `cypress.config.js`
+
+  ```js
+  {
+    ...
+    video: true,
+  }
+  ```
+
+- Configure the video output directory:
+
+  ```js
+  {
+    ...
+    videosFolder: 'logs/video',
+  }
+  ```
+
 ### Reporters
 
 - To output a 'junit' log file:
