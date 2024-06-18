@@ -1,4 +1,3 @@
-#ddev-generated
 services:
   cypress:
     image: cypress/included:13.11.0
@@ -15,6 +14,7 @@ services:
       - CYPRESS_baseUrl=${DDEV_PRIMARY_URL}
       - DISPLAY
       - HOME=/root
+      - LANG=ja_JP.UTF-8
 
     volumes:
       # Mount the project root to Cypress's project point
@@ -23,6 +23,8 @@ services:
       - ".:/mnt/ddev_config"
       # Allow X11 forwarding
       - /tmp/.X11-unix:/tmp/.X11-unix
+      # Load Japanese fonts
+      - "./fonts/truetype:/usr/share/fonts/shared/truetype"
 
     external_links:
       # Resolve links via DDEV router
