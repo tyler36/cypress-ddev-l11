@@ -1,4 +1,8 @@
 export default {
+  reporter: 'junit',
+  reporterOptions: {
+    mochaFile: 'logs/cypress-junit.xml',
+  },
   video: true,
   videosFolder: 'logs/video',
   screenshotOnRunFailure: true,

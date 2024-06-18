@@ -8,7 +8,7 @@
   - [Cypress GUI font support](#cypress-gui-font-support)
   - [Browser language](#browser-language)
     - [Chrome](#chrome)
-- [Cucumber](#cucumber)
+  - [Reporters](#reporters)
 - [Tips](#tips)
   - [Iframes](#iframes)
   - [Network stubbing](#network-stubbing)
@@ -164,7 +164,19 @@ services:
     image: cypress/included:9.5.1
     environment:
       - LANG=ja_JP.UTF-8
-```
+### Reporters
+
+- To output a 'junit' log file:
+
+    ```js
+    {
+      ....
+      reporter: 'junit',
+      reporterOptions: {
+        mochaFile: 'logs/cypress-junit.xml',
+      },
+    }
+  ```
 
 ## Cucumber
 
