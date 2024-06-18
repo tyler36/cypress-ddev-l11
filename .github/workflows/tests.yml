@@ -26,3 +26,10 @@ jobs:
 
       - name: Setup DDEV
         run: ddev cypress-run | grep 'All specs passed'
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: |
+            logs
