@@ -231,7 +231,9 @@ services:
     }
   ```
 
-## Cucumber
+## Addons
+
+### Cucumber
 
 - Install `cypress-cucumber-preprocessor`
 
