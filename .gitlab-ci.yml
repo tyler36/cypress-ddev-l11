@@ -18,3 +18,7 @@ ddev-in-docker:
   script:
     - ddev start
     - ddev cypress-run
+  artifacts:
+    when: always
+    paths:
+      - logs/*
