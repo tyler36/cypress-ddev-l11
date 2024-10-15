@@ -24,8 +24,8 @@ jobs:
           ddev artisan migrate
           ddev artisan key:generate
 
-      - name: Setup DDEV
-        run: ddev cypress-run | grep 'All specs passed'
+      - name: Cypress in DDEV
+        run: ddev cypress-run
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
