@@ -11,6 +11,10 @@ jobs:
   e2e:
     name: '✅ cypress'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+      id-token: write
     steps:
       - name: '☁️ checkout repository'
         uses: actions/checkout@v4
