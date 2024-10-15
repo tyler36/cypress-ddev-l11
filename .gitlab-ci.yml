@@ -1,14 +1,6 @@
 stages:
   - lint
 
-default:
-  cache: &global_cache
-    key: $CI_COMMIT_REF_SLUG
-    paths:
-      - node_modules/
-      - vendor/
-    policy: pull-push
-
 ddev-in-docker:
   stage: lint
   image: ghcr.io/ddev/ddev-gitlab-ci:v1.23
@@ -18,9 +10,6 @@ ddev-in-docker:
     FF_DISABLE_UMASK_FOR_DOCKER_EXECUTOR: 1
   services:
     - name: docker:dind
-  cache:
-    # inherit all global cache settings
-    <<: *global_cache
   when: always
   script:
     - ddev start
