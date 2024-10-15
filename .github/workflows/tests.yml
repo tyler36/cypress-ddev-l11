@@ -9,10 +9,10 @@ on:
 
 jobs:
   e2e:
-    name: "✅ cypress"
+    name: '✅ cypress'
     runs-on: ubuntu-latest
     steps:
-      - name: "☁️ checkout repository"
+      - name: '☁️ checkout repository'
         uses: actions/checkout@v4
 
       - name: Setup DDEV
@@ -29,7 +29,8 @@ jobs:
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: logs
           path: |
-            logs
+            logs/*
