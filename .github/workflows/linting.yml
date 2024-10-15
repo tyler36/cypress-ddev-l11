@@ -9,13 +9,13 @@ on:
 
 jobs:
   phpstan:
-    name: "🧹 PHPSTAN"
+    name: '🧹 PHPSTAN'
     runs-on: ubuntu-latest
     steps:
-      - name: "☁️ checkout repository"
+      - name: '☁️ checkout repository'
         uses: actions/checkout@v4
 
-      - name: "🧹 Run PHPStan Static Analysis"
+      - name: '🧹 Run PHPStan Static Analysis'
         uses: docker://oskarstark/phpstan-ga
         env:
           REQUIRE_DEV: true
