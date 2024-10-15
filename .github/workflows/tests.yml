@@ -28,6 +28,15 @@ jobs:
           ddev artisan migrate
           ddev artisan key:generate
 
+      - name: '📦 Cache Node dependencies'
+        uses: actions/cache@v4
+        with:
+          path: /tmp/packages-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/packages.lock') }}
+
+      - name: '📦 Install Node Dependencies'
+        run: ddev npm ci
+
       - name: '✅ Cypress in DDEV'
         run: ddev cypress-run
 
