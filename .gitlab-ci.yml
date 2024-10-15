@@ -1,7 +1,7 @@
 stages:
   - lint
 
-ddev-initialize-docker:
+ddev-in-docker:
   stage: lint
   image: ghcr.io/ddev/ddev-gitlab-ci:v1.23
   variables:
