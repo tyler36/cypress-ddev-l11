@@ -24,7 +24,7 @@ jobs:
           ddev artisan migrate
           ddev artisan key:generate
 
-      - name: Setup DDEV
+      - name: Cypress tests from DDEV
         run: ddev cypress-run | grep 'All specs passed'
 
       - name: Publish Test Report
