@@ -3,7 +3,7 @@ describe('template spec', () => {
     cy.visit('/')
     cy.screenshot()
     cy.get('footer')
-      .should('contain', 'Laravel v11')
+      .should('contain', 'Laravel vinvalid')
       .should('contain', 'PHP v8')
   })
 })
