@@ -1,5 +1,5 @@
 export default {
-  reporter: 'junit',
+  reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     mochaFile: 'logs/cypress-junit.xml',
   },
@@ -16,7 +16,7 @@ export default {
   e2e: {
     specPattern: 'tests/e2e',
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on)
     },
   },
-};
+}
