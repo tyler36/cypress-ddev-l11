@@ -25,3 +25,5 @@ ddev-in-docker:
     when: always
     paths:
       - logs/*
+    reports:
+      junit: logs/cypress-junit.xml
