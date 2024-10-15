@@ -1,28 +1,5 @@
-include:
-  - local: .gitlab/phpstan.gitlab-ci.yml
-
-variables:
-  PHP_VERSION: '8.2'
-
 stages:
-  - build
   - lint
-
-default:
-  image: "php:$PHP_VERSION-cli"
-  interruptible: true
-  cache:
-    key:
-      files:
-        - composer.lock
-    paths:
-      - vendor/
-  before_script:
-    - apt-get update -yqq
-    - apt-get install -yqq curl zip unzip
-    # Install and run Composer
-    - curl --show-error --silent "https://getcomposer.org/installer" | php
-    - php composer.phar install --prefer-dist
 
 ddev-initialize-docker:
   stage: lint
@@ -32,7 +9,7 @@ ddev-initialize-docker:
     # see https://docs.gitlab.com/runner/configuration/feature-flags.html#available-feature-flags
     FF_DISABLE_UMASK_FOR_DOCKER_EXECUTOR: 1
     # Disable Docker SSL connection
-    DOCKER_TLS_CERTDIR: ""
+    DOCKER_TLS_CERTDIR: ''
     # Fix "fatal: unable to access '<REPO>': Could not resolve host: <HOST>"
     FF_NETWORK_PER_BUILD: 0
   services:
