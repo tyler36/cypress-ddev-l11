@@ -17,6 +17,9 @@ ddev-in-docker:
   when: always
   script:
     - ddev start
+    - ddev composer install
+    - ddev artisan migrate
+    - ddev artisan key:generate
     - ddev cypress-run
   artifacts:
     when: always
