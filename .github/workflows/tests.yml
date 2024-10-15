@@ -7,29 +7,39 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   e2e:
-    name: "✅ cypress"
+    name: '✅ Cypress'
     runs-on: ubuntu-latest
     steps:
-      - name: "☁️ checkout repository"
+      - name: '☁️ Checkout repository'
         uses: actions/checkout@v4
 
-      - name: Setup DDEV
+      - name: '⚙️ DDEV'
         uses: ddev/github-action-setup-ddev@v1
 
-      - name: Setup Project
+      - name: '⚙️ Project'
         run: |
           ddev composer install
           ddev artisan migrate
           ddev artisan key:generate
 
-      - name: Setup DDEV
-        run: ddev cypress-run | grep 'All specs passed'
+      - name: '✅ Cypress in DDEV'
+        run: ddev cypress-run
 
-      - name: Archive artifacts
+      - name: '📓 Publish Test Report'
+        uses: mikepenz/action-junit-report@v4
+        if: always()
+        with:
+          report_paths: 'logs/*.xml'
+
+      - name: '☁️ Archive artifacts'
         uses: actions/upload-artifact@v4
         with:
-          name: logs
+          name: artifacts
           path: |
-            logs
+            logs/*
