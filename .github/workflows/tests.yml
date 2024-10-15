@@ -27,6 +27,12 @@ jobs:
       - name: Setup DDEV
         run: ddev cypress-run | grep 'All specs passed'
 
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v4
+        if: always()
+        with:
+          report_paths: 'logs/*.xml'
+
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         if: always()
