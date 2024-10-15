@@ -7,12 +7,16 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   e2e:
-    name: "✅ cypress"
+    name: '✅ cypress'
     runs-on: ubuntu-latest
     steps:
-      - name: "☁️ checkout repository"
+      - name: '☁️ checkout repository'
         uses: actions/checkout@v4
 
       - name: Setup DDEV
