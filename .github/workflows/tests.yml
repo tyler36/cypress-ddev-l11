@@ -19,11 +19,6 @@ jobs:
       - name: '☁️ Checkout repository'
         uses: actions/checkout@v4
 
-      - name: Cache Docker images
-        uses: ScribeMD/docker-cache@0.5.0
-        with:
-          key: docker-${{ runner.os }}-${{ hashFiles('**/.ddev/.ddev-docker-compose-full.yaml') }}
-
       - name: '⚙️ DDEV'
         uses: ddev/github-action-setup-ddev@v1
 
