@@ -6,6 +6,8 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
+        "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2",
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0",
         "vite": "^5.0"

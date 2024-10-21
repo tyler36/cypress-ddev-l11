@@ -8,10 +8,6 @@ ddev-in-docker:
     # Remove "umask 0000" usage, so DDEV has permissions on the cloned repository
     # see https://docs.gitlab.com/runner/configuration/feature-flags.html#available-feature-flags
     FF_DISABLE_UMASK_FOR_DOCKER_EXECUTOR: 1
-    # Disable Docker SSL connection
-    DOCKER_TLS_CERTDIR: ''
-    # Fix "fatal: unable to access '<REPO>': Could not resolve host: <HOST>"
-    FF_NETWORK_PER_BUILD: 0
   services:
     - name: docker:dind
   when: always
@@ -20,6 +16,7 @@ ddev-in-docker:
     - ddev composer install
     - ddev artisan migrate
     - ddev artisan key:generate
+    - ddev npm ci
     - ddev cypress-run
   artifacts:
     when: always
