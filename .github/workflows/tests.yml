@@ -37,8 +37,17 @@ jobs:
       - name: '📦 Install Node Dependencies'
         run: ddev npm ci
 
-      - name: '✅ Cypress in DDEV'
-        run: ddev cypress-run
+      - name: '✅ Cypress CHROME in DDEV'
+        if: always()
+        run: ddev exec -s cypress CYPRESS_screenshotsFolder="logs/chrome/video" CYPRESS_videosFolder="logs/chrome/video" cypress run --browser=chrome
+
+      - name: '✅ Cypress FIREFOX in DDEV'
+        if: always()
+        run: ddev exec -s cypress CYPRESS_screenshotsFolder="logs/firefox/video" CYPRESS_videosFolder="logs/firefox/video" cypress run --browser=firefox
+
+      - name: '✅ Cypress ELECTRON in DDEV'
+        if: always()
+        run: ddev exec -s cypress CYPRESS_screenshotsFolder="logs/electron/video" CYPRESS_videosFolder="logs/electron/video" cypress run --browser=electron
 
       - name: '📓 Publish Test Report'
         uses: mikepenz/action-junit-report@v4
