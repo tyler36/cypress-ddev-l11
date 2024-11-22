@@ -1,0 +1,8 @@
+services:
+  cypress:
+    environment:
+      - LANG=ja_JP.UTF-8
+
+    volumes:
+      # Load Japanese fonts
+      - "./fonts/truetype:/usr/share/fonts/shared/truetype"
