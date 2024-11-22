@@ -1,7 +1,7 @@
 describe('Osaka test', () => {
-  it('can search for Osaka', () => {
+  it('大阪を検索します', () => {
     cy.visit('https://duckduckgo.com')
-    cy.get('#searchbox_input').type('Osaka')
+    cy.get('[name="q"]').type('Osaka')
     cy.get('button[type="submit"]').click()
 
     cy.contains('大阪')
