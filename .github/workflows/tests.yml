@@ -39,15 +39,15 @@ jobs:
 
       - name: '✅ Cypress CHROME in DDEV'
         if: always()
-        run: ddev exec -s cypress CYPRESS_screenshotsFolder="logs/chrome/video" CYPRESS_videosFolder="logs/chrome/video" cypress run --browser=chrome
+        run: ddev exec -s cypress CYPRESS_screenshotsFolder="logs/chrome/video" CYPRESS_videosFolder="logs/chrome/video" cypress run --browser=chrome --reporter-options "mochaFile=logs/cypress-chrome-junit.xml"
 
       - name: '✅ Cypress FIREFOX in DDEV'
         if: always()
-        run: ddev exec -s cypress CYPRESS_screenshotsFolder="logs/firefox/video" CYPRESS_videosFolder="logs/firefox/video" cypress run --browser=firefox
+        run: ddev exec -s cypress CYPRESS_screenshotsFolder="logs/firefox/video" CYPRESS_videosFolder="logs/firefox/video" cypress run --browser=firefox --reporter-options "mochaFile=logs/cypress-firefox-junit.xml"
 
       - name: '✅ Cypress ELECTRON in DDEV'
         if: always()
-        run: ddev exec -s cypress CYPRESS_screenshotsFolder="logs/electron/video" CYPRESS_videosFolder="logs/electron/video" cypress run --browser=electron
+        run: ddev exec -s cypress CYPRESS_screenshotsFolder="logs/electron/video" CYPRESS_videosFolder="logs/electron/video" cypress run --browser=electron --reporter-options "mochaFile=logs/cypress-electron-junit.xml"
 
       - name: '📓 Publish Test Report'
         uses: mikepenz/action-junit-report@v4
