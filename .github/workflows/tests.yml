@@ -56,7 +56,7 @@ jobs:
         run: ddev cypress-run --config-file cypress.electron.js
 
       - name: '📓 Publish Test Report'
-        uses: mikepenz/action-junit-report@v4
+        uses: mikepenz/action-junit-report@v5
         if: always()
         with:
           report_paths: 'logs/*.xml'
