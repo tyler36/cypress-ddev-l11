@@ -6,7 +6,7 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
+        "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
         "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2",
         "axios": "^1.7.9",
         "cypress-support": "github:tyler36/cypress-support",
