@@ -11,6 +11,6 @@
         "axios": "^1.8.4",
         "cypress-support": "github:tyler36/cypress-support",
         "laravel-vite-plugin": "^1.2",
-        "vite": "^6.2"
+        "vite": "^6.3"
     }
 }
